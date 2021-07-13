@@ -7,7 +7,6 @@ module.exports = {
         stripe_public_key : process.env.STRIPE_PUBLIC_KEY,
     },
 
-    target:{
-        serverless
-    }
+    target:'serverless'
+    
 }
