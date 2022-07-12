@@ -58,6 +58,9 @@ function Header() {
                         <p> Returns</p>
                         <p className="font-extrabold md:text-sm">Orders</p>
                     </div> 
+                    {session? <p className="font-extrabold md:text-sm"  onClick={signOut}>  
+                            sign out
+                        </p>:<></> }
                     <div className="relative flex items-center link" onClick={()=>router.push('/checkout')}>
                         <span className="absolute top-0 right-0 w-4 h-4 font-bold text-center text-black bg-yellow-400 rounded-full md:right-10 ">{items.length}</span>
                         <ShoppingCartIcon className="h-10"/>  
