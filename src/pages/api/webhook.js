@@ -15,6 +15,7 @@ const endpointSecret = process.env.STRIPE_SIGNING_SECRET
 
 
 const fullfillOrder = async (session)=>{
+    console.log("plaaalalalalalalala");
 
     return app
     .firestore()
@@ -36,6 +37,7 @@ const fullfillOrder = async (session)=>{
 export default async (req,res) =>{
     if(req.method==='POST'){
         const requestBuffer = await buffer(req);
+        console.log(requestBuffer);
         const payload = requestBuffer.toString();
         const sig = req.headers["stripe-signature"];
 
@@ -47,7 +49,7 @@ export default async (req,res) =>{
             event = stripe.webhooks.constructEvent(payload,sig,endpointSecret);
 
         } catch (error) {
-            console.log('Error' , error.message)
+            console.log('Error ' , error.message)
             return res.status(400).send(`Webhook error : ${error.message}`);
         }
 
